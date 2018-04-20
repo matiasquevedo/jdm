@@ -79,20 +79,6 @@
 @section('js')
 	<script>
 
-		$('.select-tag').chosen({
-			placeholder_text_multiple:'Seleccione al menos 3 tags',
-			no_results_text: "Oops, no hay tags parecido a ",
-			search_contains:true,
-
-		});
-
-		$('.select-category').chosen({
-			placeholder_text_multiple:'Seleccione al menos 3 tags',
-			no_results_text: "Oops, no hay categoria parecida a ",
-			search_contains:true,
-
-		});
-
 		$('#trumbowyg-demo').trumbowyg();
 
 		document.getElementById("upload").onchange = function() {
