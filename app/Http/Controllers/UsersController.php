@@ -15,6 +15,12 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function adminHome(){
+        return view('admin.index');
+    }
+
+
     public function index()
     {
         //

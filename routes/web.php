@@ -23,9 +23,15 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin']], function(){
 
-	Route::get('/',function(){
-		return view('admin.index');
-	})->name('admin.inicio');
+	/*Route::get('/',function(){
+		return view('admin.index',[
+		]);
+	})->name('admin.inicio');*/
+
+	Route::get('/',[
+		'uses'=>'UsersController@adminHome',
+		'as'=>'admin.inicio'
+	]);
 
 	Route::resource('users','UsersController');
 	Route::get('users/{id}/destroy',[
@@ -122,6 +128,13 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']], function(){
 	Route::get('user/{id}/articles',[
 		'uses'=>'UsersController@ArticlesForUser',
 		'as'=>'user.articles'
+	]);
+
+	//////////////////HORARIOS//////////////////////////////
+	Route::resource('horarios','HorariosController');
+	Route::get('horarios/{id}/destroy',[
+		'uses'=>'HorariosController@destroy',
+		'as'=>'horarios.destroy'
 	]);
 
 	
