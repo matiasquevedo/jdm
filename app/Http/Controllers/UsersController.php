@@ -19,11 +19,10 @@ class UsersController extends Controller
     {
         //
         $users = User::orderBy('id','ASC')->paginate(5);
-        $activities = Activity::users(1)->get();
         /*foreach ($activities as $activity) {
             dd($activity->user->name);
         }*/
-        return view('admin.users.index')->with('users', $users)->with('activities', $activities);
+        return view('admin.users.index')->with('users', $users);
     }
 
     

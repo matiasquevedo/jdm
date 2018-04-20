@@ -14,7 +14,7 @@ class ArticlesPostView extends Migration
     public function up()
     {
         //
-         DB::statement("CREATE VIEW articlespostview AS SELECT articles.id, articles.volanta, images.foto, articles.state, articles.title, categories.name, articles.created_at, articles.updated_at FROM articles, categories, images WHERE state = '1' AND categories.id = articles.category_id AND images.article_id = articles.id ORDER BY articles.updated_at DESC;");
+         DB::statement("CREATE VIEW articlespostview AS SELECT articles.id, articles.volanta, images.foto, articles.state, articles.title, articles.created_at, articles.updated_at FROM articles, images WHERE state = '1' AND images.article_id = articles.id ORDER BY articles.updated_at DESC;");
     }
 
     /**

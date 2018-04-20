@@ -15,10 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li ><a href="{{ route('users.index')}}">Usuarios<span class="sr-only">(current)</span></a></li>
-        <li><a href="{{ route('categories.index')}}">Categorias</a></li>
         <li><a href="{{ route('articles.index')}}">Articulos</a></li>
-        <li><a href="{{ route('tags.index')}}">Columnas</a></li>
-        <li><a href="{{ route('ads.index')}}">Publicidad</a></li>
         <li><a href="{{ route('admin.eventos.index')}}">Eventos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

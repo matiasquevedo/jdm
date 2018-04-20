@@ -13,18 +13,6 @@
   </div>
     <div class="col-md-9">
       <div>
-    <div>
-        {!! Form::open(['route'=>'articles.index','method'=>'GET','class'=>'navbar-form pull-right']) !!}
-          <div class="input-group">
-              
-              {!! Form::text('title',null,['class'=>'form-control','placeholder'=>'Buscar Articulo','aria-describedby'=>'search']) !!}
-
-              <span class="input-group-addon" id="search"><span class="glyphicon glyphicon-search"></span></span>
-          </div>
-
-        {!! Form::close() !!}
-
-    </div>
   </div>
 
 
@@ -35,8 +23,6 @@
     <tr>
       <th></th>
       <th>Titulo</th>
-      <th>URL</th>
-      <th>Categoria</th>
       <th>Usuario</th>
       <th>Estado</th>
       <th>Acción</th>
@@ -47,12 +33,7 @@
     <tr>
       <td>{{ Form::checkbox('box[]',$article->id, null, ['class' => 'field']) }}</td>
       <td> <a href="{{ route('articles.show', $article->id) }}">{{$article->title}}</a></td>
-      <td><a href="http://diario.brickdiario.com/article/{{$article->id}}">diario.brickdiario.com/article/{{$article->id}}</a></td>
-      <td>{{$article->category->name}}</td>
       <td>
-      @if($article->user->name == "Matias Quevedo")
-        <span class="text-center" style="font-size: 50px;"><img src="/images/jesus.svg" alt="" width="25%"></span>
-      @else 
          @if($article->user->type == "member")
           <a href="{{ route('user.articles', $article->user->id) }}">{{$article->user->name}}</a> 
           <span class="label label-success">{{ $article->user->type }}</span>
@@ -61,7 +42,6 @@
           
           <span class="label label-info">{{$article->user->type}}</span>
         @endif
-      @endif
       </td>
       <td>
         @if($article->state == "0")

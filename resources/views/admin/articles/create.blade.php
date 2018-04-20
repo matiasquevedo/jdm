@@ -39,11 +39,6 @@
 				</div>
 
 				<div class="form-group">
-				{!! Form::label('bajada','Bajada*') !!}<p><i>Minimo 8 Caracteres</i></p>
-				{!! Form::text('bajada',null,['class'=>'form-control','placeholder'=>'Titulo','required']) !!}
-				</div>
-
-				<div class="form-group">
 				{!! Form::label('volanta','Volanta*') !!}<p><i>Minimo 8 Caracteres</i></p>
 				{!! Form::text('volanta',null,['class'=>'form-control','placeholder'=>'Titulo','required']) !!}
 				</div>
@@ -56,22 +51,6 @@
 
 
   			<div class="col-md-4">
-  				
-				<div class="form-group">
-				{!! Form::label('category_id','Categoria*') !!}
-				{!! Form::select('category_id',$categories,null,['class'=>'form-control select-category','required']) !!}
-				</div>
-
-
-				<div class="form-group">
-				{!! Form::label('tags','Columna*') !!}
-				{!! Form::select('tags[]',$tags,null,['class'=>'form-control select-tag','multiple']) !!}
-				</div>
-
-				<div class="form-group">
-				{!! Form::label('fuente','Fuente* (fuente propia colocar: Brick') !!}<p><i>Minimo 8 Caracteres</i></p>
-				{!! Form::text('fuente',null,['class'=>'form-control','placeholder'=>'Fuente']) !!}
-				</div>
 
 				<div class="form-group">
 				{!! Form::label('image','Imagen de Portada*') !!}

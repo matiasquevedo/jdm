@@ -24,10 +24,10 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-        $articles = Article::Search($request->title)->orderBy('id','DESC')->paginate(20);
+        $articles = Article::orderBy('id','ASC')->paginate(7);
         $articles->each(function($articles){
             $articles->user;
         });
@@ -69,8 +69,6 @@ class ArticlesController extends Controller
         $image->foto = $name;
         $image->article()->associate($article);
         $image->save();
-
-        $article->tags()->sync($request->tags);
         flash('Se creado el articulo ' . $article->title)->success();
         return redirect()->route('articles.index');
 
@@ -93,8 +91,6 @@ class ArticlesController extends Controller
         $image->foto = $name;
         $image->article()->associate($article);
         $image->save();
-
-        $article->tags()->sync($request->tags);
         flash('Se creado el articulo ' . $article->title)->success();
         return redirect()->route('editor.articles.index');
 
@@ -157,7 +153,6 @@ class ArticlesController extends Controller
         $article = Article::find($id);
         $article->fill($request->all());
         $article->save();
-        $article->tags()->sync($request->tags);
         flash('Se a editado el articulo ' . $article->title)->success();
         return redirect()->route('articles.index');
     }
@@ -249,20 +244,14 @@ class ArticlesController extends Controller
     }
 
     public function EditorArticleCreate(){
-        $categories = Category::orderBy('name','ASC')->pluck('name','id');
-        $tags = Tag::orderBy('name','ASC')->pluck('name','id');
         return view('editor.articles.create')->with('categories',$categories)->with('tags',$tags);
 
     }
 
     public function EditorArticleEdit($id){
         $article = Article::find($id);
-        $article->category;
-        $art_tags=$article->tags->pluck('id')->ToArray();
-        $categories = Category::orderBy('name','ASC')->pluck('name','id');
-        $tags = Tag::orderBy('name','ASC')->pluck('name','id');
        # dd($article);
-        return view('editor.articles.edit')->with('categories',$categories)->with('tags',$tags)->with('article',$article)->with('art_tags',$art_tags);
+        return view('editor.articles.edit')->with('article',$article);
     }
 
     public function EditorArticleUpdate(Request $request, $id)
@@ -271,7 +260,6 @@ class ArticlesController extends Controller
         $article = Article::find($id);
         $article->fill($request->all());
         $article->save();
-        $article->tags()->sync($request->tags);
         flash('Se a editado el articulo ' . $article->title)->success();
         return redirect()->route('editor.articles.index');
     }
@@ -305,36 +293,9 @@ class ArticlesController extends Controller
 
     }
 
-    public function ApiCategories(){
-        $categories = Category::all();
-        $json = json_decode($categories,true);
-        return response()->json(array('result'=>$json));
-    }
-
-    public function ApiTags(){
-        $tags = Tag::all();      
-        $json = json_decode($tags,true);  
-        return response()->json(array('result'=>$json));
-    }
-
     public function ApiShow($id){
         $article = Article::with('user','images')->get()->find($id);
         $json = json_decode($article,true);
         return response()->json(array('result'=>$json));
     }
-
-    
-    ////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////
-    ////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////////////////////////REVISOR!!!!!!!!!!!!//////////////////////////////////////
-
-
-
-    
-
-}
-
-/*'title','state','title','content','user_id','category_id'
-
-->with('categories',$categories)->with('tags',$tags)->with('article',$article)->with('art_tags',$art_tags);
-
-*/
+} 

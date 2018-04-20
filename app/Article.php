@@ -10,7 +10,7 @@ class Article extends Model
 
     protected $table = "articles";
 
-    protected $fillable = ['title','content','bajada','volanta','fuente','user_id'];
+    protected $fillable = ['title','content','volanta','state','user_id'];
 
 
     public function user(){

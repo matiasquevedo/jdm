@@ -5,9 +5,6 @@
 
 @section('content')
   <div>
-    <ol class="breadcrumb">
-      <li><a href="{{ route('categories.show',$article->category->id)}}">{{$article->category->name}}</a></li>
-    </ol>
     <div>
       {{$article->created_at}}
     </div>
@@ -37,18 +34,9 @@
   			<div class="panel-body" id="content">
   				
           <div>
-
-            <div>
-              <h4>{!!$article->bajada!!}</h4>
-            </div>
             
   					{!!$article->content!!}  					
   				
-          </div>
-          <div>
-            <div>
-              <h3>Fuente: {!!$article->fuente!!}</h3>
-            </div>
           </div>
 
   				<div>

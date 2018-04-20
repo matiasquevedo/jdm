@@ -35,6 +35,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Evento');
     }
 
+    public function albumes(){
+        return $this->hasMany('App\Album');
+    }
+
     public function nova(){
         return $this->type === 'nuevo';
     }
@@ -47,21 +51,11 @@ class User extends Authenticatable
         return $this->type === 'member';
     }
 
-    public function eventista(){
-        return $this->type === 'even';
-    }
-
-    public function revisor(){
-        return $this->type === 'revisor';
-    }
-
-    public function ventas(){
-        return $this->type === 'ventas';
-    }
-
     public function ads(){
         return $this->hasMany('App\Ad');
     }
+
+    
 
 
 }
