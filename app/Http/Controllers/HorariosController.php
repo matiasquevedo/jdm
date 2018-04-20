@@ -43,6 +43,7 @@ class HorariosController extends Controller
         //dd('todo ok desde crear '.$request);
         $horario= New Horario($request->all());
         $horario->save();
+        flash('Se a guardado ' . $horario->tema . ' de forma exitosa')->success();
         return redirect()->route('horarios.index');
 
     }
@@ -68,7 +69,7 @@ class HorariosController extends Controller
     {
         //
         $horario = Horario::find($id);
-        return view('admin.horarios.edit')->with('horario',$horario);;
+        return view('admin.horarios.edit')->with('horario',$horario);
     }
 
     /**

@@ -16,7 +16,9 @@ class AddAvisosTable extends Migration
         //
         Schema::create('avisos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('aviso'); 
+            $table->enum('state',['0','1'])->default('0');
+            $table->string('titulo');
+            $table->string('aviso');  
             $table->rememberToken();
             $table->timestamps();
         });

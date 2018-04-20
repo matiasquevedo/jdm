@@ -48,6 +48,10 @@ Route::group(['prefix'=>'/v1','middleware' => 'cors'], function(){
 		'uses'=>'HorariosController@apiHorarios'
 	]);
 
+	Route::get('/avisos',[
+		'uses'=>'AvisoController@apiAvisos'
+	]);
+
 
 
 

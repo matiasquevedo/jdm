@@ -9,6 +9,6 @@ class Aviso extends Model
     //
       protected $table = "avisos";
 
-    protected $fillable = ['aviso'];
+    protected $fillable = ['aviso','titulo'];
 
 }

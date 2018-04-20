@@ -137,6 +137,21 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']], function(){
 		'as'=>'horarios.destroy'
 	]);
 
+	Route::resource('avisos','AvisoController');
+	Route::get('aviso/{id}/destroy',[
+		'uses'=>'AvisoController@destroy',
+		'as'=>'avisos.destroy'
+	]);
+
+	Route::get('aviso/{id}/post',[
+		'uses'=>'AvisoController@publicarAviso',
+		'as'=>'avisos.post'
+	]);
+	Route::get('aviso/{id}/undpost',[
+		'uses'=>'AvisoController@despublicarAviso',
+		'as'=>'avisos.undpost'
+	]);
+
 	
 
 
