@@ -111,7 +111,7 @@ class ReflexionController extends Controller
 
 
     public function apiMensaje(){
-        $mensaje = Reflexion::latest()->first();
+        $mensaje = Reflexion::with('user')->get()->first();
         $json = json_decode($mensaje);
         return response()->json(array('result'=>$json));
     }
