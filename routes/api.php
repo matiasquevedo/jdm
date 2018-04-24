@@ -52,7 +52,9 @@ Route::group(['prefix'=>'/v1','middleware' => 'cors'], function(){
 		'uses'=>'AvisoController@apiAvisos'
 	]);
 
-
+	Route::get('/mensaje',[
+		'uses'=>'ReflexionController@apiMensaje'
+	]);
 
 
 });

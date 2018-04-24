@@ -152,6 +152,12 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']], function(){
 		'as'=>'avisos.undpost'
 	]);
 
+	Route::resource('mensajes','ReflexionController');
+	Route::get('mensaje/{id}/destroy',[
+		'uses'=>'ReflexionController@destroy',
+		'as'=>'mensajes.destroy'
+	]);
+
 	
 
 

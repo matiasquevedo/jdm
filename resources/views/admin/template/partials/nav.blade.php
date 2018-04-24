@@ -18,7 +18,10 @@
         <li><a href="{{ route('articles.index')}}">Articulos</a></li>
         <li><a href="{{ route('admin.eventos.index')}}">Eventos</a></li>
         <li><a href="{{ route('horarios.index')}}">Horarios</a></li>
-        <li><a href="{{ route('avisos.index')}}">Avisos</a></li>           
+        <li><a href="{{ route('avisos.index')}}">Avisos</a></li>   
+        <li><a href="{{ route('mensajes.index')}}">Mensaje Semanal</a></li>
+
+                
       </ul>
       <ul class="nav navbar-nav navbar-right">
         @guest
