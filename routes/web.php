@@ -158,6 +158,18 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']], function(){
 		'as'=>'mensajes.destroy'
 	]);
 
+	Route::resource('albumes','AlbumesController');
+	Route::get('albumnes/{id}/destroy',[
+		'uses'=>'AlbumesController@destroy',
+		'as'=>'albumes.destroy'
+	]);
+
+	Route::resource('fotos','FotoControloller');
+	Route::get('fotos/{id}/destroy',[
+		'uses'=>'FotoControloller@destroy',
+		'as'=>'fotos.destroy'
+	]);
+
 	
 
 

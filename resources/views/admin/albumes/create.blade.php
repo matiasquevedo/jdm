@@ -1,4 +1,4 @@
-@extends('editor.template.main')
+@extends('admin.template.main')
 
 
 @section('title', 'Nuevo Articulo')
@@ -26,43 +26,37 @@
 	<div class="container">
 
 		<div>
-			<h3>Nuevo Articulo</h3>
+			<h3>Nuevo Album</h3>
 		</div>
 
-		{!! Form::open(['route'=>'editor.articles.store', 'method'=>'POST','files'=>'true']) !!}
-
+		{!! Form::open(['route'=>'albumes.store', 'method'=>'POST','files'=>'true']) !!}
 
 		<div class="row">
   			<div class="col-md-8">
 				<div class="form-group">
-				{!! Form::label('title','Titulo*') !!}<p><i>Minimo 8 Caracteres</i></p>
-				{!! Form::text('title',null,['class'=>'form-control','placeholder'=>'Titulo','required']) !!}
+				{!! Form::label('titulo','Titulo*') !!}<p><i>Minimo 8 Caracteres</i></p>
+				{!! Form::text('titulo',null,['class'=>'form-control','placeholder'=>'Titulo','required']) !!}
 				</div>
 
 				<div class="form-group">
-				{!! Form::label('volanta','Volanta*') !!}<p><i>Minimo 8 Caracteres</i></p>
-				{!! Form::text('volanta',null,['class'=>'form-control','placeholder'=>'Titulo','required']) !!}
-				</div>
-
-				<div class="form-group">
-				{!! Form::label('content','Contenido*') !!}<p><i>Minimo 280 Caracteres</i></p>
-				{!! Form::textarea('content',null,['class'=>'form-control','id'=>'trumbowyg-demo','placeholder'=>'Contenido','required']) !!}
+				{!! Form::label('descripcion','Descripción') !!}
+				{!! Form::textarea('descripcion',null,['class'=>'form-control','placeholder'=>'Contenido','required']) !!}
 				</div>
 			</div>
 
 
   			<div class="col-md-4">
-  				
+
 				<div class="form-group">
-				{!! Form::label('image','Imagen de Portada*') !!}
-				{!! Form::file('image',['id'=>'upload','name'=>'image']) !!}
+				{!! Form::label('portada','Imagen de Portada*') !!}
+				{!! Form::file('portada',['id'=>'upload','name'=>'image']) !!}
 				</div>
 
 				<div class="preview">
 					<img id="image" width="400" height="400">
 				</div>
   			</div>
-		</div>		
+		</div>	
 
 		<div class="form-group">
 			{!! Form::submit('Crear',['class'=>'btn btn-primary']) !!}
@@ -70,14 +64,12 @@
 
 		{!! Form::close() !!}
 
-
 	</div>
-	
-	
 
 @endsection
 
 @section('js')
+
 	<script>
 
 		$('#trumbowyg-demo').trumbowyg();
@@ -93,7 +85,14 @@
   		reader.readAsDataURL(this.files[0]);
 		};
 
+		function limite_textarea(valor) {   
+    		total = valor.length;
+        	document.getElementById('cont').innerHTML = total;
+		}
 
+		
+
+		
 	</script>
 
 @endsection

@@ -244,7 +244,7 @@ class ArticlesController extends Controller
     }
 
     public function EditorArticleCreate(){
-        return view('editor.articles.create')->with('categories',$categories)->with('tags',$tags);
+        return view('editor.articles.create');
 
     }
 

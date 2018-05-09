@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Horario;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,8 @@ class HomeController extends Controller
     {
         #dd($request->user()->type);
         if($request->user()->type == 'admin'){
-            return view('admin.index');
+            $horarios = Horario::orderBy('id','DESC')->paginate(5);
+            return view('admin.index')->with('horarios',$horarios);
         }elseif ($request->user()->type == 'member') {
             return view('editor.index');
         }elseif ($request->user()->type == 'nuevo') {

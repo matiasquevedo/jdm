@@ -22,27 +22,39 @@
 				</div>
 
 
-				<div class="row row-padded homepage-grid row-bordered p-t text-center">
-    <a href=""><div class="col-sm-4">
-      <img class="homepage-grid-icon" src="//cdn.shopify.com/s/files/1/0691/5403/t/141/assets/components-icon.svg?16007593649882510692">
-      <h5><strong>Usuarios</strong></h5>
-      <p class="text-muted">Lista de Usuarios</p>
-    </div></a>
-	<a href="">
-		<div class="col-sm-4">
-      <img class="homepage-grid-icon" src="//cdn.shopify.com/s/files/1/0691/5403/t/141/assets/sliders-icon.svg?16007593649882510692">
-      <h5><strong>Configuraciones</strong></h5>
-      <p class="text-muted">Horarios, avisos, etc.</p>
-    </div>
-		
-	</a>
-    
-  </div>
-
-
 			</div>
 		</div>
 </div>
+
+<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+
+		</div>
+		<div class="col-md-3">
+			<h4>Horarios</h4>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Tema</th>
+									<th>dia</th>
+									<th>hora</th>
+								</tr>
+							</thead>
+							<tbody>
+				@foreach($horarios as $horario)
+								<tr>
+			      					<td>{{$horario->tema}}</td>
+			      					<td>{{$horario->dias}}</td>
+			           				<td>{{$horario->hora}} hs</td>
+			      					<td><a href="{{ route('horarios.edit', $horario->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-wrench"></span></a><a href="{{ route('horarios.destroy', $horario->id) }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></a></td>
+								</tr>
+				@endforeach	
+							</tbody>
+						</table>
+						{!! $horarios->render() !!} 
+		</div>
+	</div>
 
 
 

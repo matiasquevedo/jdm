@@ -29,11 +29,6 @@ Route::group(['prefix'=>'/v1','middleware' => 'cors'], function(){
 		'uses'=>'ArticlesController@ApiShow'
 	]);
 
-	Route::get('/categories/{id}/articles',[
-		'as'=>'articles.category',
-		'uses'=>'ArticlesController@ApiArticlesByCategory'
-	]);
-
 
 	Route::get('/eventos',[
 		'uses'=>'EventosController@ApiIndex'
@@ -54,6 +49,17 @@ Route::group(['prefix'=>'/v1','middleware' => 'cors'], function(){
 
 	Route::get('/mensaje',[
 		'uses'=>'ReflexionController@apiMensaje'
+	]);
+
+	Route::get('/albumes',[
+		'as'=>'albumes.all',
+		'uses'=>'AlbumesController@ApiIndex'
+	]);
+
+
+	Route::get('/album/{id}/show',[
+		'as'=>'album.show',
+		'uses'=>'AlbumesController@ApiShow'
 	]);
 
 

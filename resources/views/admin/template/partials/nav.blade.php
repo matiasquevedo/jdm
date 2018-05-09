@@ -20,6 +20,7 @@
         <li><a href="{{ route('horarios.index')}}">Horarios</a></li>
         <li><a href="{{ route('avisos.index')}}">Avisos</a></li>   
         <li><a href="{{ route('mensajes.index')}}">Mensaje Semanal</a></li>
+        <li><a href="{{ route('albumes.index')}}">Fotos</a></li>
 
                 
       </ul>

@@ -22,12 +22,12 @@
 		</div>
 		
 	@endif
-
-	
-
 	<div class="row">
-		<div class="col-md-1"></div>
+		<div class="col-md-1">
+			<a href="{{ route('editor.articles.create')}}" class="btn btn-info">Nuevo</a>
+		</div>
 		<div class="col-md-8">
+			<h3>Mis Articulos</h3>
 			<table class="table table-striped">
 				<thead>
 					<tr>

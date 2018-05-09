@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta>
-		<title>@yield('title')</title>
+		<title>@yield('title') | Santuario</title>
 
 		<link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.css')}}">	
 		<link rel="stylesheet" href="{{ asset('plugins/chosen/chosen.css')}}">

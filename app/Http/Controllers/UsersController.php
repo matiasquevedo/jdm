@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Horario;
 use Laracasts\Flash\Flash;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,8 @@ class UsersController extends Controller
      */
 
     public function adminHome(){
-        return view('admin.index');
+        $horarios = Horario::orderBy('id','DESC')->paginate(5);
+        return view('admin.index')->with('horarios',$horarios);
     }
 
 
