@@ -46,7 +46,7 @@ class AlbumesController extends Controller
         //
         if($request->file('image')){
             $file = $request->file('image');
-            $name = $request->titulo . '_' . time() . '.' . $file->getClientOriginalExtension();
+            $name = time() . '.' . $file->getClientOriginalExtension();
             $path = public_path() . '/fotos/albumes/';
             $file->move($path,$name);
         }
